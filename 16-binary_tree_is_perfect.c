@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-#include <math.h>
 
 /**
  * binary_tree_is_perfect - function that checks
@@ -18,7 +17,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	return (0);
 	height = binary_tree_height(tree);
 	nodes = binary_tree_nodes(tree);
-	if (nodes == (pow(2, height) - 1))
+	if (nodes == (_pow(2, height) - 1))
 		is_perfect = 1;
 	return (is_perfect);
 }
@@ -79,4 +78,23 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 		nodes += binary_tree_nodes(tree->right);
 	}
 	return (nodes);
+}
+
+/**
+ * _pow - finds power of a number
+ * @a: base num
+ * @n: power
+ * Return: a raised to power n
+ */
+size_t _pow(size_t a, size_t n)
+{
+	size_t c = 0;
+	size_t ans = 1;
+
+	if (n == 0)
+	return (1);
+
+	for (c = 0; c < n; c++)
+	ans *= a;
+	return (ans);
 }
